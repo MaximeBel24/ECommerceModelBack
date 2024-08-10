@@ -6,7 +6,7 @@ import fr.doranco.nomad_odyssey.entities.Product;
 import fr.doranco.nomad_odyssey.entities.User;
 import fr.doranco.nomad_odyssey.exceptions.ProductException;
 import fr.doranco.nomad_odyssey.repositories.CartRepository;
-import fr.doranco.nomad_odyssey.request.AddItemRequest;
+import fr.doranco.nomad_odyssey.requests.AddItemRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

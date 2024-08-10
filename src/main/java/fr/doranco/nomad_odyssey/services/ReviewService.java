@@ -3,7 +3,7 @@ package fr.doranco.nomad_odyssey.services;
 import fr.doranco.nomad_odyssey.entities.Review;
 import fr.doranco.nomad_odyssey.entities.User;
 import fr.doranco.nomad_odyssey.exceptions.ProductException;
-import fr.doranco.nomad_odyssey.request.ReviewRequest;
+import fr.doranco.nomad_odyssey.requests.ReviewRequest;
 
 import java.util.List;
 

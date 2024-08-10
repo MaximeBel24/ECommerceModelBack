@@ -6,7 +6,7 @@ import fr.doranco.nomad_odyssey.entities.User;
 import fr.doranco.nomad_odyssey.exceptions.ProductException;
 import fr.doranco.nomad_odyssey.repositories.ProductRepository;
 import fr.doranco.nomad_odyssey.repositories.ReviewRepository;
-import fr.doranco.nomad_odyssey.request.ReviewRequest;
+import fr.doranco.nomad_odyssey.requests.ReviewRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

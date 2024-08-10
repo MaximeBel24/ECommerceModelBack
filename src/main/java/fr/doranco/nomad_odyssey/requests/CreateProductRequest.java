@@ -1,4 +1,4 @@
-package fr.doranco.nomad_odyssey.request;
+package fr.doranco.nomad_odyssey.requests;
 
 import fr.doranco.nomad_odyssey.entities.Size;
 import lombok.AllArgsConstructor;
@@ -33,7 +33,7 @@ public class CreateProductRequest {
 
     private String imageUrl;
 
-    private String topLevelCategory; // Correction du nom
+    private String topLevelCategory;
     private String secondLevelCategory;
     private String thirdLevelCategory;
 

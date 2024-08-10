@@ -5,7 +5,7 @@ import fr.doranco.nomad_odyssey.entities.Product;
 import fr.doranco.nomad_odyssey.exceptions.ProductException;
 import fr.doranco.nomad_odyssey.repositories.CategoryRepository;
 import fr.doranco.nomad_odyssey.repositories.ProductRepository;
-import fr.doranco.nomad_odyssey.request.CreateProductRequest;
+import fr.doranco.nomad_odyssey.requests.CreateProductRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -13,12 +13,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -86,12 +83,11 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public String deleteProduct(Long productId) throws ProductException {
+    public void deleteProduct(Long productId) throws ProductException {
 
         Product product = findProductById(productId);
         product.getSizes().clear();
         productRepository.delete(product);
-        return "Product deleted Successfully";
     }
 
     @Override
@@ -150,5 +146,10 @@ public class ProductServiceImpl implements ProductService{
         List<Product> pageContent = products.subList(startIndex, endIndex);
 
         return new PageImpl<>(pageContent, pageable, products.size());
+    }
+
+    @Override
+    public List<Product> findAllProducts() {
+        return productRepository.findAll();
     }
 }

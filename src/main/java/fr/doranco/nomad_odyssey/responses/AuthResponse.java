@@ -1,4 +1,4 @@
-package fr.doranco.nomad_odyssey.response;
+package fr.doranco.nomad_odyssey.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
