@@ -1,11 +1,13 @@
 package fr.doranco.nomad_odyssey.controllers;
 
 import fr.doranco.nomad_odyssey.config.JwtProvider;
+import fr.doranco.nomad_odyssey.entities.Cart;
 import fr.doranco.nomad_odyssey.entities.User;
 import fr.doranco.nomad_odyssey.exceptions.UserException;
 import fr.doranco.nomad_odyssey.repositories.UserRepository;
 import fr.doranco.nomad_odyssey.requests.LoginRequest;
 import fr.doranco.nomad_odyssey.responses.AuthResponse;
+import fr.doranco.nomad_odyssey.services.CartService;
 import fr.doranco.nomad_odyssey.services.CustomerUserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,6 +39,9 @@ public class AuthController {
     @Autowired
     private CustomerUserServiceImpl customerUserService;
 
+    @Autowired
+    private CartService cartService;
+
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> createUserHandler(@RequestBody User user) throws UserException{
 
@@ -58,6 +63,7 @@ public class AuthController {
         createdUser.setLastName(lastName);
 
         User savedUser = userRepository.save(createdUser);
+        Cart cart = cartService.createCart(savedUser);
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(savedUser.getEmail(), savedUser.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);

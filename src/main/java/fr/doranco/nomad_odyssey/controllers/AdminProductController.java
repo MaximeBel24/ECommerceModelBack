@@ -19,7 +19,7 @@ public class AdminProductController {
     @Autowired
     private ProductService productService;
 
-    @PostMapping("/")
+    @PostMapping("/create")
     public ResponseEntity<Product> createProduct(@RequestBody CreateProductRequest request){
         Product product = productService.createProduct(request);
 
