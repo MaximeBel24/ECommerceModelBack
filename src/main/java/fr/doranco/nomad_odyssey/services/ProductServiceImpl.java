@@ -143,6 +143,10 @@ public class ProductServiceImpl implements ProductService{
         int startIndex = (int) pageable.getOffset();
         int endIndex = Math.min(startIndex + pageable.getPageSize(), products.size());
 
+        if (startIndex > endIndex || startIndex >= products.size()) {
+            return new PageImpl<>(List.of(), pageable, products.size());
+        }
+
         List<Product> pageContent = products.subList(startIndex, endIndex);
 
         return new PageImpl<>(pageContent, pageable, products.size());
